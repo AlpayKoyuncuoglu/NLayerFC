@@ -1,0 +1,15 @@
+D:\.netPro\NLayerFC\NLayer.Repository\bin\Debug\net6.0\NLayer.Repository.deps.json
+D:\.netPro\NLayerFC\NLayer.Repository\bin\Debug\net6.0\NLayer.Repository.dll
+D:\.netPro\NLayerFC\NLayer.Repository\bin\Debug\net6.0\NLayer.Repository.pdb
+D:\.netPro\NLayerFC\NLayer.Repository\bin\Debug\net6.0\NLayer.Core.dll
+D:\.netPro\NLayerFC\NLayer.Repository\bin\Debug\net6.0\NLayer.Core.pdb
+D:\.netPro\NLayerFC\NLayer.Repository\obj\Debug\net6.0\NLayer.Repository.csproj.AssemblyReference.cache
+D:\.netPro\NLayerFC\NLayer.Repository\obj\Debug\net6.0\NLayer.Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\.netPro\NLayerFC\NLayer.Repository\obj\Debug\net6.0\NLayer.Repository.AssemblyInfoInputs.cache
+D:\.netPro\NLayerFC\NLayer.Repository\obj\Debug\net6.0\NLayer.Repository.AssemblyInfo.cs
+D:\.netPro\NLayerFC\NLayer.Repository\obj\Debug\net6.0\NLayer.Repository.csproj.CoreCompileInputs.cache
+D:\.netPro\NLayerFC\NLayer.Repository\obj\Debug\net6.0\NLayer.Repository.csproj.CopyComplete
+D:\.netPro\NLayerFC\NLayer.Repository\obj\Debug\net6.0\NLayer.Repository.dll
+D:\.netPro\NLayerFC\NLayer.Repository\obj\Debug\net6.0\refint\NLayer.Repository.dll
+D:\.netPro\NLayerFC\NLayer.Repository\obj\Debug\net6.0\NLayer.Repository.pdb
+D:\.netPro\NLayerFC\NLayer.Repository\obj\Debug\net6.0\ref\NLayer.Repository.dll
