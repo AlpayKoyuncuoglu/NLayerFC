@@ -15,6 +15,7 @@ namespace NLayer.Core
         //bu yüzden custom isim vermekten kaçınılabilir
         public int Id { get; set; }
         public DateTime CreatedDate  { get; set; }
-        public DateTime UpdatedDate { get; set; }
+        //update işlemi sonradan yapılacağından nulalble olmalı
+        public DateTime? UpdatedDate { get; set; }
     }
 }
