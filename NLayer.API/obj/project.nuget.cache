@@ -1,15 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "ce+uNHklfvB6ydGb/BaeaZRR35e+lX9rwhTvW4BpuTXX/pcmIu4D9bmXEc8KXbpJcr86L/gwbcLPS9QCnZ430w==",
+  "dgSpecHash": "W/YdxqByXE91NXt7VphrG06zq43AJ6PIKo7vZylTGf33uG28HteFRCea51IQ3C7brtNYgkEClB+s8HYJ1k9+gg==",
   "success": true,
   "projectFilePath": "D:\\.netPro\\NLayerFC\\NLayer.API\\NLayer.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\akoyuncuoglu.ESTERTEKNOLOJI\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\akoyuncuoglu.ESTERTEKNOLOJI\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\akoyuncuoglu.ESTERTEKNOLOJI\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\akoyuncuoglu.ESTERTEKNOLOJI\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\akoyuncuoglu.ESTERTEKNOLOJI\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.1\\microsoft.entityframeworkcore.6.0.1.nupkg.sha512",
     "C:\\Users\\akoyuncuoglu.ESTERTEKNOLOJI\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.1\\microsoft.entityframeworkcore.abstractions.6.0.1.nupkg.sha512",
     "C:\\Users\\akoyuncuoglu.ESTERTEKNOLOJI\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.1\\microsoft.entityframeworkcore.analyzers.6.0.1.nupkg.sha512",
+    "C:\\Users\\akoyuncuoglu.ESTERTEKNOLOJI\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.1\\microsoft.entityframeworkcore.design.6.0.1.nupkg.sha512",
     "C:\\Users\\akoyuncuoglu.ESTERTEKNOLOJI\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.1\\microsoft.entityframeworkcore.relational.6.0.1.nupkg.sha512",
     "C:\\Users\\akoyuncuoglu.ESTERTEKNOLOJI\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.1\\microsoft.entityframeworkcore.sqlserver.6.0.1.nupkg.sha512",
     "C:\\Users\\akoyuncuoglu.ESTERTEKNOLOJI\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
