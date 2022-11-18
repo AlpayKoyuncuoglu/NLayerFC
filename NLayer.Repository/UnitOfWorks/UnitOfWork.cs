@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace NLayer.Repository.UnitOfWorks
 {
+    //Ayrı ayrı commitlemektense(saveChanges()) efcore tek transaction ile veritabanına yansıtır. Bu işleme kadar Update,Delete.. memory'de tutulur.
+    //Eğer bir hata oluşursa rollback yapılır
     public class UnitOfWork : IUnitOfWork
     {
         private readonly AppDbContext _context;
