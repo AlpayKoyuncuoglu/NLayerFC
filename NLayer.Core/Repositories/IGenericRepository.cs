@@ -9,7 +9,7 @@ namespace NLayer.Core.Repositories
 {
     public interface IGenericRepository<T> where T : class
     {
-        IQueryable<T> GetAll(Expression<Func<T, bool>> expression);
+        IQueryable<T> GetAll();
         Task<T> GetByIdAsync(int id);
         //IQueryable ile yazılan metod doğrudan veritabanına gitmez. Öncelikle ToList() gibi metodların eklenmesi gerekir.
         //bu araya orderBy gibi bir metod eklenebilir. Bu sayede veri tamamen çekilmeden önce order yapılır

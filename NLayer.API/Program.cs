@@ -5,6 +5,8 @@ using NLayer.Core.UnitOfWorks;
 using NLayer.Repository;
 using NLayer.Repository.Repositories;
 using NLayer.Repository.UnitOfWorks;
+using NLayer.Service.Mapping;
+using NLayer.Service.Services;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +20,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 //IGenericRepository birden fazla entity alsaydý; IGenericRepository<,> sayýya göre virgüller eklenecekti
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-//builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
+builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
+builder.Services.AddAutoMapper(typeof(MapProfile));//birden fazla mapping olabilir, ProductMapProfile gibi
+
 builder.Services.AddDbContext<AppDbContext>(x =>
  {
      //daha önce startup içindeki configuration'un yazýmý bu þekilde deðiþmiþtir
