@@ -10,6 +10,7 @@ namespace NLayer.API.Controllers
     public class CustomBaseController : ControllerBase
     {
         [NonAction]//swagger'ın bunu bir endpoint olarak algılamasının önüne geçildi
+        //get ve post'u olmadığından hata fırlatacaktı
         public IActionResult CreateActionResult<T>(CustomResponseDto<T> response)
         {
             if (response.StatusCode == 204)

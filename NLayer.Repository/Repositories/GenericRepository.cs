@@ -15,7 +15,8 @@ namespace NLayer.Repository.Repositories
         protected readonly AppDbContext _context;//product'la ilgili category bilgileri alınmak istendiğinde productRepository'e ihtiyaç duyulur.
         //Bu yüzden miras alınacak yerlerde buradaki AppDbContext'e ihtiyaç duyulacaktır. protected erişim belirleyicisinin kullanılma sebebi budur
         private readonly DbSet<T> _dbSet;
-        //readonly ile ya tanımlama yapılırken ya da constructor içinde değer atanabilir
+        //readonly ile ya tanımlama yapılırken ya ilk tanımlandığı zaman ya da constructor içinde değer atanabilir
+        //daha sonra atama yapılmak istendiğinde hata verir
         public GenericRepository(AppDbContext context)
         {
             _context = context;
@@ -38,8 +39,8 @@ namespace NLayer.Repository.Repositories
 
         public IQueryable<T> GetAll()
         {
-            //AsNoTracking çektiği dataları memory'e almaması için kullanılır. Kullanılmazsa çok fazla data çekildiğinde, dataların anlık durumu check edilecektir(dispose edilene kadar)
-            //Hız yavaşlar//update, insert, delete gibi işlemler yapılmayacağından bu kullanım daha performanslıdır
+            //AsNoTracking efcore'un çektiği dataların memory'e alınmaması için kullanılır. Kullanılmazsa çok fazla data çekildiğinde, dataların anlık durumu check edilecektir(dispose edilene kadar)
+            //Yavaşlama olacaktır//update, insert, delete gibi işlemler yapılmayacağından bu kullanım daha performanslıdır
             return _dbSet.AsNoTracking().AsQueryable();
         }
 
@@ -52,6 +53,8 @@ namespace NLayer.Repository.Repositories
         public void Remove(T entity)
         {
             //_context.Entry(entity).State=EntityState.Deleted;//2'si de aynı işlevdedir
+            //saveChanges metodu çağrılana kadar entity'nin state değeri deleted olarak işaretlenir
+            //saveChanges çağrıldığında deletedFlag'leri bulunur ve db'den silme işlemi yapılır
             _dbSet.Remove(entity);
         }
 

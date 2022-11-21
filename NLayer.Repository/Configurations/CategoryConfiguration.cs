@@ -16,10 +16,11 @@ namespace NLayer.Repository.Configurations
         {
             //OnModelCreating içinde yapılan işlemler burada da yapılabilir
             builder.HasKey(x => x.Id);//id'si bu şekilde ifade edilir
-            builder.Property(x => x.Id).UseIdentityColumn(1, 2);//id'nin ka.tan başlayacağı ve kaçar kaçar artacağı da bu şekilde belirlenir
+            builder.Property(x => x.Id).UseIdentityColumn(1, 2);//id'nin kaçtan başlayacağı ve kaçar kaçar artacağı da bu şekilde belirlenir
             builder.Property(x => x.Name).IsRequired().HasMaxLength(50);
 
             builder.ToTable("Category");//DbSet'te belirtilen tablo ismi buradan değiştirilebilir//burada bir değer girilmediğinde default dbset yanındaki değer alınır
+                                        //burada veritabanında gösterilecek olan tablo adı girilmektedir
         }
         //public void Configure(EntityTypeBuilder<Product> builder)
         //{

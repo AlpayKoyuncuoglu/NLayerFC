@@ -12,10 +12,10 @@ namespace NLayer.Core
     {
         //entityframework buradaki id'yi primarykey olarak algılar
         //ancak EntityId olarak yazım değiştirilirse [Key] ifadesi property üstüne eklenmelidir
-        //bu yüzden custom isim vermekten kaçınılabilir
+        //bu yüzden custom isim vermekten kaçınılmalıdır
         public int Id { get; set; }
         public DateTime CreatedDate  { get; set; }
-        //update işlemi sonradan yapılacağından nulalble olmalı
+        //update işlemi sonradan yapılacağından nullable olmalı
         public DateTime? UpdatedDate { get; set; }
     }
 }

@@ -19,6 +19,7 @@ namespace NLayer.Repository.Configurations
             builder.Property(x => x.Stock).IsRequired();
             builder.Property(x => x.Price).IsRequired().HasColumnType("decimal(18,2)");//virgüle kadar 16, virgülden sonra 2 karakter
             builder.ToTable("Products");
+            //efcore aşağıdaki ifadeyi kendi algılayacaktır. Ancak açık şekilde işlkemin görülmesi için yazıldı
             builder.HasOne(x => x.Category).WithMany(x=>x.Products).HasForeignKey(x=>x.CategoryId);//bir product'ın bir category'si olabilir. Bir category'nin birden çok product'ı
 
         }

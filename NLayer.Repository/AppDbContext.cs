@@ -15,7 +15,8 @@ namespace NLayer.Repository
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-            //aşağıda dbset eklemeksizin product üzerinden ProductFeature eklenmek istenirse bu şekilde bir kullanım yapılabilir;
+            //aşağıda dbset olmaksızın product üzerinden ProductFeature eklenmek istenirse bu şekilde bir kullanım yapılabilir;
+            //bu commentli kullanım best practise açısından daha olumludur
             //var p = new Product() { ProductFeature = new ProductFeature() { } };
         }
         public DbSet<Category> Categories { get; set; }
@@ -27,13 +28,13 @@ namespace NLayer.Repository
             //Id değerleri Primary ve ForeignKey olarak EntityFramework'ün algılayabileceği, uyumlu şekilde yapılmıştır.
             //Ancak key değerleri configure edilmek istenirse bu metod içinde değişiklik yapılabilir.
 
-            //Bu yaklaşım fluentApi olarak adlandırılır. Burada HasName()
+            //Bu yaklaşım fluentApi olarak adlandırılır. 
             //modelBuilder.Entity<Category>().HasKey(x=>x.Id)//HasName() ile property ismi de değiştirilebilir
             //best practise açısından bu tarz ayarlamalar başka bir class içinde yapılmalıdır
 
             //bütün classLibrary'ler bir assembly'dir
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());//bütün assembly'ler içindeki configuration dosyalarını oku
-            //modelBuilder.ApplyConfiguration(new ProductConfiguration());//configuration'lar tek tek yapılmak istendiğinde bu şekilde ekleme yapılabilir
+            //modelBuilder.ApplyConfiguration(new ProductConfiguration());//configuration'lar tek tek yapılmak istendiğinde bu şekilde yazılabilir
 
             //farklılığı görmek adına ProductFeature burada eklenmiştir
             modelBuilder.Entity<ProductFeature>().HasData(
