@@ -15,8 +15,10 @@ namespace NLayer.Repository.Repositories
         protected readonly AppDbContext _context;//product'la ilgili category bilgileri alınmak istendiğinde productRepository'e ihtiyaç duyulur.
         //Bu yüzden miras alınacak yerlerde buradaki AppDbContext'e ihtiyaç duyulacaktır. protected erişim belirleyicisinin kullanılma sebebi budur
         private readonly DbSet<T> _dbSet;
+
         //readonly ile ya tanımlama yapılırken ya ilk tanımlandığı zaman ya da constructor içinde değer atanabilir
         //daha sonra atama yapılmak istendiğinde hata verir
+
         public GenericRepository(AppDbContext context)
         {
             _context = context;

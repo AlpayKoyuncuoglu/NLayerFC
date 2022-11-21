@@ -23,7 +23,7 @@ namespace NLayer.Core.Repositories
         Task AddAsync(T Entity);
         //Birden fazla ekleme işlemi yapmak için AddRange kullanılır. Burada da List yerine IEnumerable kullanıldı. Mümkün olduğunca soyut nesnelerle çalışmak önemli
         Task AddRangeAsync(IEnumerable<T> entites);
-        //update ve delete için efcore'da async yoktur. Memory'e alınan class'ın sadece state'i değiştirildiği içinde, uzun süren bir işlem olmadığı için gerek de yoktur.
+        //update ve delete için efcore'da async yoktur. Memory'e alınan class'ın sadece state'i değiştirildiği ve uzun süren bir işlem olmadığı için gerek de yoktur.
         void Update(T Entity);
         void Remove(T Entity);
         void RemoveRange(IEnumerable<T> entities);
