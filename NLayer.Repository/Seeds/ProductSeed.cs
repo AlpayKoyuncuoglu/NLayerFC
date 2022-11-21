@@ -11,6 +11,8 @@ namespace NLayer.Repository.Seeds
 {
     internal class ProductSeed : IEntityTypeConfiguration<Product>
     {
+        //EntityTypeBuilder implement edildiğinden onModelCreating içindeki bütün classLibrary'leri tarayan kod burayı da yakalayacaktır ve seedData işlemi gerçekleşecektir
+       //yine de örnek olması için productFeature AppDbContext içinde eklenmşitir
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.HasData(
@@ -22,8 +24,9 @@ namespace NLayer.Repository.Seeds
                         Price = 100,
                         Stock = 20,
                         CreatedDate = DateTime.Now,
-                        //UpdatedData içine ilerde bir interceptor yazılacaktır. SaveChanges metodu override edilecektir
-                    },
+                    //createDate için merkezi bir yönetim yapılıp db_context'e interceptor yazılacaktır
+                    //UpdatedData için de ilerde bir interceptor yazılacaktır. SaveChanges metodu override edilecektir
+                },
                     new Product
                     {
                         Id = 2,
