@@ -4,9 +4,8 @@ using NLayer.Core.DTOs;
 
 namespace NLayer.API.Controllers
 {
-    //miras alınan yerde mevcut
-    //[Route("api/[controller]")]
-    //[ApiController]
+    [Route("api/[controller]")]
+    [ApiController]
     public class CustomBaseController : ControllerBase
     {
         [NonAction]//swagger'ın bunu bir endpoint olarak algılamasının önüne geçildi

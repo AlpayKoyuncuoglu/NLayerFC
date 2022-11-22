@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 
 namespace NLayer.Service.Services
 {
+    //IProductService IService'i miras almasına rağmen burada neden Service<Product>'tan da miras alındı. Service<Product> de IService'den miras almaktadır
+    //Service içerisinde IService'den gelen metodların içi doldurulmuştur.
+    //Sadece IService'den miras alınsaydı burada pek çok metodun içi tekrar doldurulacaktı
     public class ProductService : Service<Product>, IProductService
     {
         private readonly IProductRepository _productRepository;
@@ -21,9 +24,10 @@ namespace NLayer.Service.Services
             _mapper = mapper;
             _productRepository = productRepository;
         }
-
+        //repoların ve service'lerin dönüş tiplerinin değiştiği gözlenmektedir. Repoda dönüş tipi böyleyken: Task<List<Product>> aşağıda;
         public async Task<CustomResponseDto<List<ProductWithCategoryDto>>> GetProductsWithCategory()
         {
+            //ilerde try catch burada kullanılacaktır
             var products = await _productRepository.GetProductsWithCategory();
             var productsDto = _mapper.Map<List<ProductWithCategoryDto>>(products);
             return CustomResponseDto<List<ProductWithCategoryDto>>.Success(200,productsDto);

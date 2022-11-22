@@ -17,8 +17,9 @@ namespace NLayer.Repository.Repositories
 
         public async Task<List<Product>> GetProductsWithCategory()
         {
-            //protected olarak belirlenen context nesnesine buradan erişilir
-            //eager loading yapıldı. Data çekilirken category değerlerini alınması istenildi
+            //protected olarak belirlenen context nesnesine burada erişildi
+            //eager loading yapıldı; data çekilirken category'ler alındı
+            //daha sonra çekilseydi lazy loading olacaktı
             return await _context.Products.Include(x=>x.Category).ToListAsync();
         
         }
