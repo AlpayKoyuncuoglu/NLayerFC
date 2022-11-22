@@ -1,4 +1,8 @@
+using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NLayer.API.Filters;
+using NLayer.API.Middlewares;
 using NLayer.Core.Repositories;
 using NLayer.Core.Services;
 using NLayer.Core.UnitOfWorks;
@@ -7,14 +11,26 @@ using NLayer.Repository.Repositories;
 using NLayer.Repository.UnitOfWorks;
 using NLayer.Service.Mapping;
 using NLayer.Service.Services;
+using NLayer.Service.Validations;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 //services
-builder.Services.AddControllers();
+builder.Services.AddControllers(
+    options =>
+    {
+        options.Filters.Add(new ValidateFilterAttribute());
+    }
+    ).AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<ProductDtoValidator>());
+//addFluentValidation eklendi ama devamýnda yer ifadesi de yapýlmalý
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.SuppressModelStateInvalidFilter = true;//invalid filter'ý baskýla
+    //mvc'de buna gerek yok ancak apide default olarak böyle bir süreç olduðu için baskýlama gerekiyor
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -22,8 +38,15 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 //IGenericRepository birden fazla entity alsaydý; IGenericRepository<,> sayýya göre virgüller eklenecekti
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
+
 builder.Services.AddAutoMapper(typeof(MapProfile));//birden fazla mapping olabilir, MapProductProfile MapCategoryProfile gibi
-//profile class'ýndan miras aldýðý sürece automapper gerekli bütün class'larý bulu
+//profile class'ýndan miras aldýðý sürece automapper gerekli bütün class'larý bulur
+//buradaki kod kirliliði otofac ile düzeltilecektir
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+
 builder.Services.AddDbContext<AppDbContext>(x =>
  {
      //daha önce startup içindeki configuration'un yazýmý bu þekilde deðiþmiþtir
@@ -51,6 +74,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCustomException();
 
 app.UseAuthorization();
 
