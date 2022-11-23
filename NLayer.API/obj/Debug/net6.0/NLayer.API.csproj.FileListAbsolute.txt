@@ -69,3 +69,7 @@ D:\.netPro\NLayerFC\NLayer.API\obj\Debug\net6.0\refint\NLayer.API.dll
 D:\.netPro\NLayerFC\NLayer.API\obj\Debug\net6.0\NLayer.API.pdb
 D:\.netPro\NLayerFC\NLayer.API\obj\Debug\net6.0\NLayer.API.genruntimeconfig.cache
 D:\.netPro\NLayerFC\NLayer.API\obj\Debug\net6.0\ref\NLayer.API.dll
+D:\.netPro\NLayerFC\NLayer.API\bin\Debug\net6.0\Autofac.dll
+D:\.netPro\NLayerFC\NLayer.API\bin\Debug\net6.0\Autofac.Extensions.DependencyInjection.dll
+D:\.netPro\NLayerFC\NLayer.API\bin\Debug\net6.0\NLayer.Caching.dll
+D:\.netPro\NLayerFC\NLayer.API\bin\Debug\net6.0\NLayer.Caching.pdb

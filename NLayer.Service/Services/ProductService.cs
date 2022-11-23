@@ -25,12 +25,12 @@ namespace NLayer.Service.Services
             _productRepository = productRepository;
         }
         //repoların ve service'lerin dönüş tiplerinin değiştiği gözlenmektedir. Repoda dönüş tipi böyleyken: Task<List<Product>> aşağıda;
-        public async Task<CustomResponseDto<List<ProductWithCategoryDto>>> GetProductsWithCategory()
+        public async Task<List<ProductWithCategoryDto>> GetProductsWithCategory()
         {
             //ilerde try catch burada kullanılacaktır
             var products = await _productRepository.GetProductsWithCategory();
             var productsDto = _mapper.Map<List<ProductWithCategoryDto>>(products);
-            return CustomResponseDto<List<ProductWithCategoryDto>>.Success(200,productsDto);
+            return productsDto;
         }
     }
 }

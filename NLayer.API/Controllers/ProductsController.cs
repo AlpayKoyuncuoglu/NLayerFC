@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using NLayer.API.Filters;
 using NLayer.Core;
 using NLayer.Core.DTOs;
-using NLayer.Core.Services; 
+using NLayer.Core.Services;
 
 namespace NLayer.API.Controllers
 {
@@ -19,7 +19,7 @@ namespace NLayer.API.Controllers
         private readonly IProductService _productService;
 
         //public ProductsController(IService<Product> service, IMapper mapper,IProductService productService)
-        public ProductsController( IMapper mapper,IProductService productService)
+        public ProductsController(IMapper mapper, IProductService productService)
         {
             //_service = service;
             _mapper = mapper;
@@ -47,6 +47,7 @@ namespace NLayer.API.Controllers
             return CreateActionResult(CustomResponseDto<List<ProductDto>>.Success(200, productsDtos));
         }
 
+        [ServiceFilter(typeof(NotFoundFilter<Product>))]
         [HttpGet("{id}")]//eğer burada id belirtilmezse alt satırdaki - int id - query string'den beklenir
         public async Task<IActionResult> GetById(int id)
         {
@@ -77,13 +78,12 @@ namespace NLayer.API.Controllers
             //dönen bir data yok dolayısıyla mapleme yapılmadı
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
-
         [HttpDelete("{id}")]
         public async Task<IActionResult> Remove(int id)
         {
             var product = await _productService.GetByIdAsync(id);//ilerde kaldırılacak ve merkezi bir kontrol mekanizması eklenecek. 
-            //exception fırlatılacak
-            
+                                                                 //exception fırlatılacak
+
             await _productService.RemoveAsync(product);
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
